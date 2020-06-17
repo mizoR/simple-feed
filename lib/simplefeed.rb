@@ -61,7 +61,7 @@ module SimpleFeed
     end
 
     # Forward all other method calls to the Provider
-    def method_missing(name, *args, **opts, &block)
+    def method_missing(name, *args, &block)
       registry[name] || super
     end
   end

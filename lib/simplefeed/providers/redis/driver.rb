@@ -126,7 +126,7 @@ module SimpleFeed
         end
 
         class MockRedis
-          def method_missing(name, *args, **_opts, &block)
+          def method_missing(name, *args, &block)
             puts "calling redis.#{name}(#{args.to_s.gsub(/[\[\]]/, '')}) { #{block ? block.call : nil} }"
           end
         end

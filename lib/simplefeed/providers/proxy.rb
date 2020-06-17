@@ -27,11 +27,11 @@ module SimpleFeed
       end
 
       # Forward all other method calls to Provider
-      def method_missing(name, *args, **opts, &block)
+      def method_missing(name, *args, &block)
         if provider&.respond_to?(name)
-          provider.send(name, *args, **opts, &block)
+          provider.send(name, *args, &block)
         else
-          super(name, *args, **opts, &block)
+          super(name, *args, &block)
         end
       end
     end
